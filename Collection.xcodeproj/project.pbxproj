@@ -9,13 +9,31 @@
 /* Begin PBXBuildFile section */
 		38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC4237D5252003EE481 /* AppDelegate.m */; };
 		38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC7237D5252003EE481 /* SceneDelegate.m */; };
-		38FE2ACB237D5252003EE481 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ACA237D5252003EE481 /* ViewController.m */; };
+		38FE2ACB237D5252003EE481 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ACA237D5252003EE481 /* ViewController.mm */; };
 		38FE2ACE237D5252003EE481 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FE2ACC237D5252003EE481 /* Main.storyboard */; };
 		38FE2AD0237D5254003EE481 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FE2ACF237D5254003EE481 /* Assets.xcassets */; };
 		38FE2AD3237D5254003EE481 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FE2AD1237D5254003EE481 /* LaunchScreen.storyboard */; };
 		38FE2AD6237D5254003EE481 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AD5237D5254003EE481 /* main.m */; };
 		38FE2AE0237D5255003EE481 /* CollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ADF237D5255003EE481 /* CollectionTests.m */; };
 		38FE2AEB237D5255003EE481 /* CollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AEA237D5255003EE481 /* CollectionUITests.m */; };
+		38FE2AFC237E442D003EE481 /* COTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AFB237E442D003EE481 /* COTime.m */; };
+		38FE2AFF237E5127003EE481 /* NSObject+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AFD237E5126003EE481 /* NSObject+Audio.m */; };
+		38FE2B06237E518E003EE481 /* snr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B01237E518E003EE481 /* snr.cpp */; };
+		38FE2B07237E518E003EE481 /* WavSnr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B04237E518E003EE481 /* WavSnr.cpp */; };
+		38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B51237E74A9003EE481 /* VidioViewController.m */; };
+		38FE2B54237E74A9003EE481 /* VidioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FE2B52237E74A9003EE481 /* VidioViewController.xib */; };
+		38FE2B69237E7784003EE481 /* PQCircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B56237E7784003EE481 /* PQCircleAnimationView.m */; };
+		38FE2B6A237E7784003EE481 /* PQTopArcAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B57237E7784003EE481 /* PQTopArcAnimationView.m */; };
+		38FE2B6B237E7784003EE481 /* PQVoiceCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B58237E7784003EE481 /* PQVoiceCircleView.m */; };
+		38FE2B6C237E7784003EE481 /* PQVoiceTopArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B59237E7784003EE481 /* PQVoiceTopArcView.m */; };
+		38FE2B6D237E7784003EE481 /* PQVoiceTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B5B237E7784003EE481 /* PQVoiceTopView.m */; };
+		38FE2B6E237E7784003EE481 /* PQVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B5C237E7784003EE481 /* PQVoiceView.m */; };
+		38FE2B6F237E7784003EE481 /* UIView+PQViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B5D237E7784003EE481 /* UIView+PQViewExtension.m */; };
+		38FE2B70237E7784003EE481 /* PQVoiceBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B66237E7784003EE481 /* PQVoiceBottomView.m */; };
+		38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B67237E7784003EE481 /* PQVoiceInputView.m */; };
+		38FE2B76237E7884003EE481 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FE2B75237E7884003EE481 /* AVFoundation.framework */; };
+		38FE2B79237E8AE7003EE481 /* MD5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B78237E8AE7003EE481 /* MD5String.m */; };
+		9C3E65D481605B0DA8AEFD82 /* libPods-Collection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A2D58795395C87D0F4EE12 /* libPods-Collection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33A2D58795395C87D0F4EE12 /* libPods-Collection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AC0237D5252003EE481 /* Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AC3237D5252003EE481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38FE2AC4237D5252003EE481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		38FE2AC6237D5252003EE481 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		38FE2AC7237D5252003EE481 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		38FE2AC9237D5252003EE481 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		38FE2ACA237D5252003EE481 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		38FE2ACA237D5252003EE481 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		38FE2ACD237D5252003EE481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38FE2ACF237D5254003EE481 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38FE2AD2237D5254003EE481 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +73,43 @@
 		38FE2AE6237D5255003EE481 /* CollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AEA237D5255003EE481 /* CollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionUITests.m; sourceTree = "<group>"; };
 		38FE2AEC237D5255003EE481 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38FE2AF8237D6E29003EE481 /* Collection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collection.entitlements; sourceTree = "<group>"; };
+		38FE2AFA237E442D003EE481 /* COTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COTime.h; sourceTree = "<group>"; };
+		38FE2AFB237E442D003EE481 /* COTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COTime.m; sourceTree = "<group>"; };
+		38FE2AFD237E5126003EE481 /* NSObject+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Audio.m"; sourceTree = "<group>"; };
+		38FE2AFE237E5127003EE481 /* NSObject+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Audio.h"; sourceTree = "<group>"; };
+		38FE2B01237E518E003EE481 /* snr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snr.cpp; sourceTree = "<group>"; };
+		38FE2B02237E518E003EE481 /* WavHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavHeader.h; sourceTree = "<group>"; };
+		38FE2B03237E518E003EE481 /* WavSnr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavSnr.h; sourceTree = "<group>"; };
+		38FE2B04237E518E003EE481 /* WavSnr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavSnr.cpp; sourceTree = "<group>"; };
+		38FE2B05237E518E003EE481 /* WavStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavStatistics.h; sourceTree = "<group>"; };
+		38FE2B50237E74A9003EE481 /* VidioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VidioViewController.h; sourceTree = "<group>"; };
+		38FE2B51237E74A9003EE481 /* VidioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VidioViewController.m; sourceTree = "<group>"; };
+		38FE2B52237E74A9003EE481 /* VidioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VidioViewController.xib; sourceTree = "<group>"; };
+		38FE2B56237E7784003EE481 /* PQCircleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQCircleAnimationView.m; sourceTree = "<group>"; };
+		38FE2B57237E7784003EE481 /* PQTopArcAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQTopArcAnimationView.m; sourceTree = "<group>"; };
+		38FE2B58237E7784003EE481 /* PQVoiceCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceCircleView.m; sourceTree = "<group>"; };
+		38FE2B59237E7784003EE481 /* PQVoiceTopArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceTopArcView.m; sourceTree = "<group>"; };
+		38FE2B5A237E7784003EE481 /* PQVoiceBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceBottomView.h; sourceTree = "<group>"; };
+		38FE2B5B237E7784003EE481 /* PQVoiceTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceTopView.m; sourceTree = "<group>"; };
+		38FE2B5C237E7784003EE481 /* PQVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceView.m; sourceTree = "<group>"; };
+		38FE2B5D237E7784003EE481 /* UIView+PQViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PQViewExtension.m"; sourceTree = "<group>"; };
+		38FE2B5E237E7784003EE481 /* PQVoiceInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceInputView.h; sourceTree = "<group>"; };
+		38FE2B5F237E7784003EE481 /* PQVoiceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceInput.h; sourceTree = "<group>"; };
+		38FE2B60237E7784003EE481 /* PQCircleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQCircleAnimationView.h; sourceTree = "<group>"; };
+		38FE2B61237E7784003EE481 /* PQVoiceTopArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceTopArcView.h; sourceTree = "<group>"; };
+		38FE2B62237E7784003EE481 /* PQVoiceCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceCircleView.h; sourceTree = "<group>"; };
+		38FE2B63237E7784003EE481 /* PQTopArcAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQTopArcAnimationView.h; sourceTree = "<group>"; };
+		38FE2B64237E7784003EE481 /* PQVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceView.h; sourceTree = "<group>"; };
+		38FE2B65237E7784003EE481 /* PQVoiceTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQVoiceTopView.h; sourceTree = "<group>"; };
+		38FE2B66237E7784003EE481 /* PQVoiceBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceBottomView.m; sourceTree = "<group>"; };
+		38FE2B67237E7784003EE481 /* PQVoiceInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQVoiceInputView.m; sourceTree = "<group>"; };
+		38FE2B68237E7784003EE481 /* UIView+PQViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PQViewExtension.h"; sourceTree = "<group>"; };
+		38FE2B75237E7884003EE481 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		38FE2B77237E8AE7003EE481 /* MD5String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5String.h; sourceTree = "<group>"; };
+		38FE2B78237E8AE7003EE481 /* MD5String.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5String.m; sourceTree = "<group>"; };
+		6C9AD37B78852BA8B249D2AE /* Pods-Collection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collection.release.xcconfig"; path = "Target Support Files/Pods-Collection/Pods-Collection.release.xcconfig"; sourceTree = "<group>"; };
+		B40D4E14693B950BBE1D90EC /* Pods-Collection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collection.debug.xcconfig"; path = "Target Support Files/Pods-Collection/Pods-Collection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FE2B76237E7884003EE481 /* AVFoundation.framework in Frameworks */,
+				9C3E65D481605B0DA8AEFD82 /* libPods-Collection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +146,8 @@
 				38FE2ADE237D5255003EE481 /* CollectionTests */,
 				38FE2AE9237D5255003EE481 /* CollectionUITests */,
 				38FE2AC1237D5252003EE481 /* Products */,
+				38FE2B74237E7883003EE481 /* Frameworks */,
+				6A5ECC824B2144D6C19490E2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,17 +164,13 @@
 		38FE2AC2237D5252003EE481 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				38FE2AC3237D5252003EE481 /* AppDelegate.h */,
-				38FE2AC4237D5252003EE481 /* AppDelegate.m */,
-				38FE2AC6237D5252003EE481 /* SceneDelegate.h */,
-				38FE2AC7237D5252003EE481 /* SceneDelegate.m */,
-				38FE2AC9237D5252003EE481 /* ViewController.h */,
-				38FE2ACA237D5252003EE481 /* ViewController.m */,
+				38FE2AF8237D6E29003EE481 /* Collection.entitlements */,
+				38FE2B7C237E9D14003EE481 /* ViewControllers */,
+				38FE2B7A237E9CE7003EE481 /* Other */,
+				38FE2B55237E7784003EE481 /* VoiceInput */,
+				38FE2B00237E518E003EE481 /* Wav */,
+				38FE2AF9237E4415003EE481 /* TOOL */,
 				38FE2ACC237D5252003EE481 /* Main.storyboard */,
-				38FE2ACF237D5254003EE481 /* Assets.xcassets */,
-				38FE2AD1237D5254003EE481 /* LaunchScreen.storyboard */,
-				38FE2AD4237D5254003EE481 /* Info.plist */,
-				38FE2AD5237D5254003EE481 /* main.m */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -137,6 +193,103 @@
 			path = CollectionUITests;
 			sourceTree = "<group>";
 		};
+		38FE2AF9237E4415003EE481 /* TOOL */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2AFE237E5127003EE481 /* NSObject+Audio.h */,
+				38FE2AFD237E5126003EE481 /* NSObject+Audio.m */,
+				38FE2AFA237E442D003EE481 /* COTime.h */,
+				38FE2AFB237E442D003EE481 /* COTime.m */,
+				38FE2B77237E8AE7003EE481 /* MD5String.h */,
+				38FE2B78237E8AE7003EE481 /* MD5String.m */,
+			);
+			path = TOOL;
+			sourceTree = "<group>";
+		};
+		38FE2B00237E518E003EE481 /* Wav */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2B01237E518E003EE481 /* snr.cpp */,
+				38FE2B02237E518E003EE481 /* WavHeader.h */,
+				38FE2B03237E518E003EE481 /* WavSnr.h */,
+				38FE2B04237E518E003EE481 /* WavSnr.cpp */,
+				38FE2B05237E518E003EE481 /* WavStatistics.h */,
+			);
+			path = Wav;
+			sourceTree = "<group>";
+		};
+		38FE2B55237E7784003EE481 /* VoiceInput */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2B56237E7784003EE481 /* PQCircleAnimationView.m */,
+				38FE2B57237E7784003EE481 /* PQTopArcAnimationView.m */,
+				38FE2B58237E7784003EE481 /* PQVoiceCircleView.m */,
+				38FE2B59237E7784003EE481 /* PQVoiceTopArcView.m */,
+				38FE2B5A237E7784003EE481 /* PQVoiceBottomView.h */,
+				38FE2B5B237E7784003EE481 /* PQVoiceTopView.m */,
+				38FE2B5C237E7784003EE481 /* PQVoiceView.m */,
+				38FE2B5D237E7784003EE481 /* UIView+PQViewExtension.m */,
+				38FE2B5E237E7784003EE481 /* PQVoiceInputView.h */,
+				38FE2B5F237E7784003EE481 /* PQVoiceInput.h */,
+				38FE2B60237E7784003EE481 /* PQCircleAnimationView.h */,
+				38FE2B61237E7784003EE481 /* PQVoiceTopArcView.h */,
+				38FE2B62237E7784003EE481 /* PQVoiceCircleView.h */,
+				38FE2B63237E7784003EE481 /* PQTopArcAnimationView.h */,
+				38FE2B64237E7784003EE481 /* PQVoiceView.h */,
+				38FE2B65237E7784003EE481 /* PQVoiceTopView.h */,
+				38FE2B66237E7784003EE481 /* PQVoiceBottomView.m */,
+				38FE2B67237E7784003EE481 /* PQVoiceInputView.m */,
+				38FE2B68237E7784003EE481 /* UIView+PQViewExtension.h */,
+			);
+			path = VoiceInput;
+			sourceTree = "<group>";
+		};
+		38FE2B74237E7883003EE481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2B75237E7884003EE481 /* AVFoundation.framework */,
+				33A2D58795395C87D0F4EE12 /* libPods-Collection.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38FE2B7A237E9CE7003EE481 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2AC3237D5252003EE481 /* AppDelegate.h */,
+				38FE2AC4237D5252003EE481 /* AppDelegate.m */,
+				38FE2AC6237D5252003EE481 /* SceneDelegate.h */,
+				38FE2AC7237D5252003EE481 /* SceneDelegate.m */,
+				38FE2ACF237D5254003EE481 /* Assets.xcassets */,
+				38FE2AD1237D5254003EE481 /* LaunchScreen.storyboard */,
+				38FE2AD4237D5254003EE481 /* Info.plist */,
+				38FE2AD5237D5254003EE481 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		38FE2B7C237E9D14003EE481 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38FE2AC9237D5252003EE481 /* ViewController.h */,
+				38FE2ACA237D5252003EE481 /* ViewController.mm */,
+				38FE2B50237E74A9003EE481 /* VidioViewController.h */,
+				38FE2B51237E74A9003EE481 /* VidioViewController.m */,
+				38FE2B52237E74A9003EE481 /* VidioViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6A5ECC824B2144D6C19490E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B40D4E14693B950BBE1D90EC /* Pods-Collection.debug.xcconfig */,
+				6C9AD37B78852BA8B249D2AE /* Pods-Collection.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38FE2AEF237D5255003EE481 /* Build configuration list for PBXNativeTarget "Collection" */;
 			buildPhases = (
+				0DA889F294ACF276C5752FBB /* [CP] Check Pods Manifest.lock */,
 				38FE2ABC237D5252003EE481 /* Sources */,
 				38FE2ABD237D5252003EE481 /* Frameworks */,
 				38FE2ABE237D5252003EE481 /* Resources */,
@@ -242,6 +396,7 @@
 			files = (
 				38FE2AD3237D5254003EE481 /* LaunchScreen.storyboard in Resources */,
 				38FE2AD0237D5254003EE481 /* Assets.xcassets in Resources */,
+				38FE2B54237E74A9003EE481 /* VidioViewController.xib in Resources */,
 				38FE2ACE237D5252003EE481 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,14 +417,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DA889F294ACF276C5752FBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Collection-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		38FE2ABC237D5252003EE481 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FE2ACB237D5252003EE481 /* ViewController.m in Sources */,
+				38FE2B6F237E7784003EE481 /* UIView+PQViewExtension.m in Sources */,
+				38FE2ACB237D5252003EE481 /* ViewController.mm in Sources */,
 				38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */,
+				38FE2B79237E8AE7003EE481 /* MD5String.m in Sources */,
+				38FE2B6A237E7784003EE481 /* PQTopArcAnimationView.m in Sources */,
+				38FE2B6C237E7784003EE481 /* PQVoiceTopArcView.m in Sources */,
+				38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */,
+				38FE2B6E237E7784003EE481 /* PQVoiceView.m in Sources */,
 				38FE2AD6237D5254003EE481 /* main.m in Sources */,
+				38FE2B06237E518E003EE481 /* snr.cpp in Sources */,
+				38FE2B6D237E7784003EE481 /* PQVoiceTopView.m in Sources */,
+				38FE2B69237E7784003EE481 /* PQCircleAnimationView.m in Sources */,
+				38FE2B07237E518E003EE481 /* WavSnr.cpp in Sources */,
+				38FE2AFC237E442D003EE481 /* COTime.m in Sources */,
+				38FE2B70237E7784003EE481 /* PQVoiceBottomView.m in Sources */,
+				38FE2AFF237E5127003EE481 /* NSObject+Audio.m in Sources */,
+				38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */,
+				38FE2B6B237E7784003EE481 /* PQVoiceCircleView.m in Sources */,
 				38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,11 +632,18 @@
 		};
 		38FE2AF0237D5255003EE481 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B40D4E14693B950BBE1D90EC /* Pods-Collection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Collection/Collection.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R248EBY833;
-				INFOPLIST_FILE = Collection/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Collection/TOOL",
+				);
+				INFOPLIST_FILE = Collection/Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +656,18 @@
 		};
 		38FE2AF1237D5255003EE481 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C9AD37B78852BA8B249D2AE /* Pods-Collection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Collection/Collection.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R248EBY833;
-				INFOPLIST_FILE = Collection/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Collection/TOOL",
+				);
+				INFOPLIST_FILE = Collection/Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
