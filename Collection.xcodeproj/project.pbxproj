@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */; };
 		38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC4237D5252003EE481 /* AppDelegate.m */; };
 		38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC7237D5252003EE481 /* SceneDelegate.m */; };
 		38FE2ACB237D5252003EE481 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ACA237D5252003EE481 /* ViewController.mm */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		33A2D58795395C87D0F4EE12 /* libPods-Collection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		381DA69A2394B768003F4CA6 /* XBEchoCancellation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBEchoCancellation.h; sourceTree = "<group>"; };
+		381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBEchoCancellation.m; sourceTree = "<group>"; };
 		38FE2AC0237D5252003EE481 /* Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AC3237D5252003EE481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38FE2AC4237D5252003EE481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381DA6992394B768003F4CA6 /* XBEchoCancellation */ = {
+			isa = PBXGroup;
+			children = (
+				381DA69A2394B768003F4CA6 /* XBEchoCancellation.h */,
+				381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */,
+			);
+			path = XBEchoCancellation;
+			sourceTree = "<group>";
+		};
 		38FE2AB7237D5252003EE481 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +208,7 @@
 		38FE2AF9237E4415003EE481 /* TOOL */ = {
 			isa = PBXGroup;
 			children = (
+				381DA6992394B768003F4CA6 /* XBEchoCancellation */,
 				38FE2AFE237E5127003EE481 /* NSObject+Audio.h */,
 				38FE2AFD237E5126003EE481 /* NSObject+Audio.m */,
 				38FE2AFA237E442D003EE481 /* COTime.h */,
@@ -286,7 +299,6 @@
 				B40D4E14693B950BBE1D90EC /* Pods-Collection.debug.xcconfig */,
 				6C9AD37B78852BA8B249D2AE /* Pods-Collection.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -452,6 +464,7 @@
 				38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */,
 				38FE2B79237E8AE7003EE481 /* MD5String.m in Sources */,
 				38FE2B6A237E7784003EE481 /* PQTopArcAnimationView.m in Sources */,
+				381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */,
 				38FE2B6C237E7784003EE481 /* PQVoiceTopArcView.m in Sources */,
 				38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */,
 				38FE2B6E237E7784003EE481 /* PQVoiceView.m in Sources */,
