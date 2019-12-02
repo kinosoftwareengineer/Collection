@@ -17,7 +17,7 @@
 #import "WavHeader.h"
 #import "VidioViewController.h"
 #import "MD5String.h"
-#define SECRET @"1"
+#define SECRET @"123456789"
 
 @interface ViewController ()<AVAudioRecorderDelegate>
 @property (weak, nonatomic)  IBOutlet UITextField *IPTextView;

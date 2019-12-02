@@ -1,0 +1,6 @@
+platform:ios,'9.0'
+target'Collection'do
+pod 'Masonry'
+pod 'AFNetworking'
+end
+
