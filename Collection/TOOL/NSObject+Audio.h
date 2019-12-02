@@ -10,7 +10,4 @@
 
 @interface NSObject (Audio)
 
-+ (void)removeFLLRfromWavHeader:(NSString *)wavPath;
-+ (void)removeJUNKfromWavHeader:(NSString *)wavPath;
-
 @end

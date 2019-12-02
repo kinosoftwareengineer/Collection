@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		168ED9B923950D270045003B /* HeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 168ED9B823950D270045003B /* HeadData.m */; };
 		381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */; };
 		38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC4237D5252003EE481 /* AppDelegate.m */; };
 		38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC7237D5252003EE481 /* SceneDelegate.m */; };
@@ -18,9 +19,6 @@
 		38FE2AE0237D5255003EE481 /* CollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ADF237D5255003EE481 /* CollectionTests.m */; };
 		38FE2AEB237D5255003EE481 /* CollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AEA237D5255003EE481 /* CollectionUITests.m */; };
 		38FE2AFC237E442D003EE481 /* COTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AFB237E442D003EE481 /* COTime.m */; };
-		38FE2AFF237E5127003EE481 /* NSObject+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AFD237E5126003EE481 /* NSObject+Audio.m */; };
-		38FE2B06237E518E003EE481 /* snr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B01237E518E003EE481 /* snr.cpp */; };
-		38FE2B07237E518E003EE481 /* WavSnr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B04237E518E003EE481 /* WavSnr.cpp */; };
 		38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B51237E74A9003EE481 /* VidioViewController.m */; };
 		38FE2B54237E74A9003EE481 /* VidioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FE2B52237E74A9003EE481 /* VidioViewController.xib */; };
 		38FE2B69237E7784003EE481 /* PQCircleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2B56237E7784003EE481 /* PQCircleAnimationView.m */; };
@@ -55,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		168ED9B723950D270045003B /* HeadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadData.h; sourceTree = "<group>"; };
+		168ED9B823950D270045003B /* HeadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadData.m; sourceTree = "<group>"; };
 		33A2D58795395C87D0F4EE12 /* libPods-Collection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		381DA69A2394B768003F4CA6 /* XBEchoCancellation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBEchoCancellation.h; sourceTree = "<group>"; };
 		381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBEchoCancellation.m; sourceTree = "<group>"; };
@@ -79,13 +79,6 @@
 		38FE2AF8237D6E29003EE481 /* Collection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Collection.entitlements; sourceTree = "<group>"; };
 		38FE2AFA237E442D003EE481 /* COTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COTime.h; sourceTree = "<group>"; };
 		38FE2AFB237E442D003EE481 /* COTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COTime.m; sourceTree = "<group>"; };
-		38FE2AFD237E5126003EE481 /* NSObject+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Audio.m"; sourceTree = "<group>"; };
-		38FE2AFE237E5127003EE481 /* NSObject+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Audio.h"; sourceTree = "<group>"; };
-		38FE2B01237E518E003EE481 /* snr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snr.cpp; sourceTree = "<group>"; };
-		38FE2B02237E518E003EE481 /* WavHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavHeader.h; sourceTree = "<group>"; };
-		38FE2B03237E518E003EE481 /* WavSnr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavSnr.h; sourceTree = "<group>"; };
-		38FE2B04237E518E003EE481 /* WavSnr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavSnr.cpp; sourceTree = "<group>"; };
-		38FE2B05237E518E003EE481 /* WavStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavStatistics.h; sourceTree = "<group>"; };
 		38FE2B50237E74A9003EE481 /* VidioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VidioViewController.h; sourceTree = "<group>"; };
 		38FE2B51237E74A9003EE481 /* VidioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VidioViewController.m; sourceTree = "<group>"; };
 		38FE2B52237E74A9003EE481 /* VidioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VidioViewController.xib; sourceTree = "<group>"; };
@@ -180,7 +173,6 @@
 				38FE2B7C237E9D14003EE481 /* ViewControllers */,
 				38FE2B7A237E9CE7003EE481 /* Other */,
 				38FE2B55237E7784003EE481 /* VoiceInput */,
-				38FE2B00237E518E003EE481 /* Wav */,
 				38FE2AF9237E4415003EE481 /* TOOL */,
 				38FE2ACC237D5252003EE481 /* Main.storyboard */,
 			);
@@ -209,26 +201,14 @@
 			isa = PBXGroup;
 			children = (
 				381DA6992394B768003F4CA6 /* XBEchoCancellation */,
-				38FE2AFE237E5127003EE481 /* NSObject+Audio.h */,
-				38FE2AFD237E5126003EE481 /* NSObject+Audio.m */,
 				38FE2AFA237E442D003EE481 /* COTime.h */,
 				38FE2AFB237E442D003EE481 /* COTime.m */,
 				38FE2B77237E8AE7003EE481 /* MD5String.h */,
 				38FE2B78237E8AE7003EE481 /* MD5String.m */,
+				168ED9B723950D270045003B /* HeadData.h */,
+				168ED9B823950D270045003B /* HeadData.m */,
 			);
 			path = TOOL;
-			sourceTree = "<group>";
-		};
-		38FE2B00237E518E003EE481 /* Wav */ = {
-			isa = PBXGroup;
-			children = (
-				38FE2B01237E518E003EE481 /* snr.cpp */,
-				38FE2B02237E518E003EE481 /* WavHeader.h */,
-				38FE2B03237E518E003EE481 /* WavSnr.h */,
-				38FE2B04237E518E003EE481 /* WavSnr.cpp */,
-				38FE2B05237E518E003EE481 /* WavStatistics.h */,
-			);
-			path = Wav;
 			sourceTree = "<group>";
 		};
 		38FE2B55237E7784003EE481 /* VoiceInput */ = {
@@ -469,13 +449,11 @@
 				38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */,
 				38FE2B6E237E7784003EE481 /* PQVoiceView.m in Sources */,
 				38FE2AD6237D5254003EE481 /* main.m in Sources */,
-				38FE2B06237E518E003EE481 /* snr.cpp in Sources */,
 				38FE2B6D237E7784003EE481 /* PQVoiceTopView.m in Sources */,
 				38FE2B69237E7784003EE481 /* PQCircleAnimationView.m in Sources */,
-				38FE2B07237E518E003EE481 /* WavSnr.cpp in Sources */,
 				38FE2AFC237E442D003EE481 /* COTime.m in Sources */,
 				38FE2B70237E7784003EE481 /* PQVoiceBottomView.m in Sources */,
-				38FE2AFF237E5127003EE481 /* NSObject+Audio.m in Sources */,
+				168ED9B923950D270045003B /* HeadData.m in Sources */,
 				38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */,
 				38FE2B6B237E7784003EE481 /* PQVoiceCircleView.m in Sources */,
 				38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */,

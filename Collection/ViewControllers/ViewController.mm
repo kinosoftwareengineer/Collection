@@ -13,17 +13,16 @@
 #include <errno.h>
 #import <AVFoundation/AVFoundation.h>
 #import "COTime.h"
-#import "NSObject+Audio.h"
 #import "WavHeader.h"
 #import "VidioViewController.h"
 #import "MD5String.h"
 #import "AFNetworking.h"
 #import "XBEchoCancellation.h"
-
+#import "HeadData.h"
 
 #define SECRET @"123456789"
 
-@interface ViewController ()<AVAudioRecorderDelegate>
+@interface ViewController ()<AVAudioRecorderDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 //连接按钮，ip按钮，port按钮
 //@property (weak, nonatomic) IBOutlet UIButton *reconnectBtn;
@@ -43,6 +42,7 @@
 @property (nonatomic,copy)   NSMutableString * desc;
 @property (nonatomic,assign) int  id;
 @property (nonatomic,strong) NSMutableArray * fileNameArray;
+@property (nonatomic,strong) NSMutableDictionary * micDic;
 
 //储存开始和结束时间的数组
 @property (nonatomic,strong) NSMutableArray * timeArrayBegin;
@@ -69,6 +69,9 @@
 @property (nonatomic,strong)NSMutableArray * sensorArray;//本机所有的sensor设备
 @property (nonatomic,strong)NSMutableArray * timeDateArray;//记录录音和结束时文件的字节数，每次取最后两个对象
 @property (nonatomic,copy)  NSMutableString * recordFilePath;
+@property (nonatomic,strong) NSMutableData * targetData;
+@property (nonatomic,assign)NSInteger begin;
+@property (nonatomic,assign)NSInteger end;
 @end
 
 @implementation ViewController
@@ -86,11 +89,12 @@
         NSMutableArray * array=[[NSMutableArray alloc]init];
         _timeArrayEnd=array;
     }
+    
     return _timeArrayEnd;
 }
 -(void)viewWillShow{
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMemoryWarning) name:@"sendMemoryWarning" object:nil];
-    
+
         //基本数据的初始化操作/连接按钮形状/设置初始IP,PORT信息/数组字符串初始化/通知初始化
         self.actNumber=1;
         self.count=0;
@@ -138,70 +142,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //请求访问麦克风/设置session/请求网络/降噪
     [self requestForMic];
     [self configSession];
     [self connect];
-    [self performSelector:@selector(echo) withObject:nil afterDelay:.01f];
+//    [self performSelector:@selector(echo) withObject:nil afterDelay:.01f];
     [self viewWillShow];
 }
 //降噪
--(void)echo{
-     [[XBEchoCancellation shared] closeEchoCancellation];
+//-(void)echo{
+//     [[XBEchoCancellation shared] closeEchoCancellation];
+//}
+- (IBAction)takePic:(id)sender {
+    [self setupForPicture];
+    
 }
-//-(void)setupForPicture{
-//
-//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-//    {
-//    //第二步:实例化UIImagePickerController对象
-//     UIImagePickerController * imagePickerController = [[UIImagePickerController alloc] init];
-//
-//    //第三步:告诉picker对象是获取相机资源
-//    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    //第四步:设置代理
-//    imagePickerController.delegate = self;
-//    //第五步:设置picker可以编辑
-//    imagePickerController.allowsEditing = YES;
-//    //第六步:设置进去的模态方式
-//    imagePickerController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
-//    //第七步:跳转
-//    [self presentViewController:imagePickerController animated:YES completion:nil];
-//
-//    }
-////}
-//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-//{
-////获取选中资源的类型
-//NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-////只能拍照(还有摄像或者二者都可以有的)
-//NSString *requiredMediaType = (NSString *)kUTTypeImage;
-//if([mediaType isEqualToString:requiredMediaType])
-//{
-//    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-//    UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
-//
-//}
-//[picker dismissViewControllerAnimated:YES completion:nil];
-//}
-//
-//-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-//{
-//    [picker dismissViewControllerAnimated:YES completion:nil];
-//}
-//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
-//  contextInfo:(void *)contextInfo{
-//
-//    NSLog(@"saved..");
-//}
+- (IBAction)btnpic:(id)sender {
+}
 
-- (IBAction)endsocketByHand:(UIButton *)sender {
-    self.clinenId=-1;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self endSocket];
-    });
-    sender.hidden=YES;
+-(void)setupForPicture{
+
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+    //第二步:实例化UIImagePickerController对象
+     UIImagePickerController * imagePickerController = [[UIImagePickerController alloc] init];
+
+    //第三步:告诉picker对象是获取相机资源
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //第四步:设置代理
+    imagePickerController.delegate = self;
+    //第五步:设置picker可以编辑
+    imagePickerController.allowsEditing = YES;
+    //第六步:设置进去的模态方式
+    imagePickerController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+    //第七步:跳转
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+
+    }
 }
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+//获取选中资源的类型
+NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+//只能拍照(还有摄像或者二者都可以有的)
+NSString *requiredMediaType = (NSString *)kUTTypeImage;
+if([mediaType isEqualToString:requiredMediaType])
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
+
+}
+[picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
+  contextInfo:(void *)contextInfo{
+
+    NSLog(@"saved..");
+}
+
+//- (IBAction)endsocketByHand:(UIButton *)sender {
+//    self.clinenId=-1;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self endSocket];
+//    });
+//    sender.hidden=YES;
+//}
 
 - (void)connect{
     NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
@@ -246,49 +256,7 @@
     
     [self createSocket:ip andPort:portText];
 }
-#pragma  mark------------失败重连重新创建socket，调用连接方法
--(int)connectWhenFaild{
-    NSCharacterSet* set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-      NSString* ip = [self.IPTextView.text stringByTrimmingCharactersInSet:set];
-      if (!ip.length) {
-          return -1;
-      }
-      NSString* portText = [self.portTextView.text stringByTrimmingCharactersInSet:set];
-      if (!portText.length) {
-          return -1;
-      }
-      NSUserDefaults * user=[NSUserDefaults standardUserDefaults];
-      [user setObject:self.IPTextView.text forKey:@"lastIP"];
-      [user synchronize];
-       
-       const char * ipC = NULL;
-       if ([ip canBeConvertedToEncoding:NSUTF8StringEncoding]) {
-           ipC = [ip cStringUsingEncoding:NSUTF8StringEncoding];
-       }
-       //将port转成数字
-       int portNumber=[portText intValue];
-         //结构体
-       struct sockaddr_in socketAddr;
-           socketAddr.sin_family = AF_INET;
-           socketAddr.sin_port   = htons(portNumber);
-           struct in_addr socketIn_addr;
-           socketIn_addr.s_addr  = inet_addr(ipC);
-           socketAddr.sin_addr   = socketIn_addr;
-       
-      int result = connect(self.clinenId, (const struct sockaddr *)&socketAddr, sizeof(socketAddr));
-       
-       if (result != 0) {
-           NSLog(@"连接失败的数值%d---并且对应原因为%s",errno,strerror(errno));
-           NSLog(@"连接失败");
-           return -1;
-           
-       }else{
-           NSLog(@"重连成功");
-           return 1;
-          
-       }
-    
-}
+
 #pragma  mark------------创建socket
 -(void)createSocket:(NSString *)ip andPort:(NSString *)port{
     int socketID = socket(AF_INET, SOCK_STREAM, 0);
@@ -359,19 +327,6 @@
                    
                     return;
                 }
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//
-////                    self.reconnectBtn.hidden=NO;
-//
-//                    while (self.clinenId!=-1) {
-//                        [NSThread sleepForTimeInterval:.2f];
-//                        NSLog(@"我在尝试重连");
-//                        if ([self connectWhenFaild]==1){
-//                            [self receiveMessage];
-//
-//                        }
-//                    }
-//                });
                  return ;
                 }
           
@@ -441,9 +396,11 @@
                                     [self sendStatusOK];
                                     if (self.setupFlag==NO){
                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                            
-                                            [self startRecord];
+                                            self.micDic=nil;
+                                            self.micDic=[NSMutableDictionary dictionary];
+                                        
                                             self.setupFlag=YES;
+                                            [self startRecord];
                                             [self changeVC];
                                             [[NSNotificationCenter defaultCenter]postNotification:self.notifiPrepare];
                                          
@@ -463,7 +420,6 @@
                                              NSLog(@"再次setup时删除原录音文件成功");
                                              [self startRecord];
                                         }
-                                        
                                     }
                                 }
                                 else{
@@ -503,10 +459,11 @@
                                          }
                                          
                                          self.id=tempSessionID;
-                                         self.filePath=[[[sensor objectForKey:@"filepath"] stringByRemovingPercentEncoding]copy];
+                                         self.filePath=[[[sensor objectForKey:@"filepath"] stringByRemovingPercentEncoding] copy];
                                          self.desc=[[[data objectForKey:@"desc"] stringByRemovingPercentEncoding] copy];
-                    
+                                        
                                          [self markDataLength];
+                                         
                                          dispatch_async(dispatch_get_main_queue(), ^{
                                               [[NSNotificationCenter defaultCenter]postNotification:self.notifirecord];
                                          });
@@ -564,6 +521,7 @@
     
     long long intstart1=[startSub1 longLongValue];
     long long intstart3=[startSub3 longLongValue];
+    self.begin=(NSUInteger)intstart1;
     
     NSDictionary *contentItem=@{@"agentId": self.myDeviceUUID.UUIDString,
                          @"sensorId": [NSString stringWithFormat:@"%d",self.id],
@@ -615,6 +573,7 @@
        
        long long intend1=[endSub1 longLongValue];
        long long intend3=[endSub3 longLongValue];
+       self.end=(NSUInteger)intend1;
     
     NSDictionary *contentItem=@{@"agentId": self.myDeviceUUID.UUIDString,
                                @"sensorId": [NSString stringWithFormat:@"%d",self.id],
@@ -641,7 +600,6 @@
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
     NSString* json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     [self sendMsgAction:json];
-NSLog(@"$$$$%@",self.timeArrayEnd);
 }
 -(void)sendStopTimeMessageFailed{
     NSDictionary * data=@{ @"status": [NSNumber numberWithInt:++self.actNumber],
@@ -677,17 +635,15 @@ NSLog(@"$$$$%@",self.timeArrayEnd);
            self.recorder.delegate = self;
            [self.recorder prepareToRecord];
            [self.recorder setMeteringEnabled:YES];
+
            [self.recorder record];
-          
 
 }
 -(void)markDataLength{
     [self.timeArrayBegin addObject:[COTime getTimeStamp]];
-    NSMutableData *targetData = [NSMutableData dataWithContentsOfFile:self.recorder.url.path];
-    [self.timeDateArray addObject:[NSNumber numberWithInteger:targetData.length]];
-    NSLog(@"我是开始时截取到的长度%@",[NSNumber numberWithInteger:targetData.length]);
     [self.timeArrayBegin addObject:[COTime getTimeStamp]];
     [self sendBeginTimeMessage];
+    NSLog(@"我是开始的时间%@",self.timeArrayBegin);
 }
 -(void)changeVC{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -695,7 +651,6 @@ NSLog(@"$$$$%@",self.timeArrayEnd);
            videoVC.modalPresentationStyle=UIModalPresentationFullScreen;
            [self presentViewController:videoVC animated:YES completion:nil];
         });
- 
 }
 -(void)stopRecord{
     
@@ -705,37 +660,35 @@ NSLog(@"$$$$%@",self.timeArrayEnd);
         [self sendStopTimeMessageFailed];
         return;
     }
-    
+    //添加结束时的时间
     [self.timeArrayEnd addObject:[COTime getTimeStamp]];
-    NSMutableData *targetData = [NSMutableData dataWithContentsOfFile:self.recorder.url.path];
-    [self.timeDateArray addObject:[NSNumber numberWithInteger:targetData.length]];
+    [self.recorder stop];
     [self.timeArrayEnd addObject:[COTime getTimeStamp]];
     
-    NSLog(@"我是结束时截取到的长度%@",[NSNumber numberWithInteger:targetData.length]);
-    NSLog(@"储存文件的路径%@",self.recorder.url.path);
+    //发送停止的消息
+     [self sendStopTimeMessage];
+     NSLog(@"我是结束的时间%@",self.timeArrayEnd);
     
-    //获取结束时的data文件
-    NSMutableData * endData=[NSMutableData dataWithContentsOfFile:self.recorder.url.path];
-    //记录开始和结束时的字节数，生成一个NSRange,获取截取后的二进制文件
-    
-    int beginStamp=[self.timeDateArray[self.timeDateArray.count-2] intValue];
-    int endStamp=[self.timeDateArray[self.timeDateArray.count-1] intValue];
-    
+    //获取结束时的音频data
+    NSMutableData * targetData = [NSMutableData dataWithContentsOfFile:self.recorder.url.path];
+
+    NSUInteger midleByte=(self.end-self.begin)*32;
     NSMutableData * resultData=[NSMutableData data];
-    NSRange  range=NSMakeRange(beginStamp, endStamp-beginStamp);
-    NSData * dataCut=[endData subdataWithRange:range];
-    
-    NSData *header = WriteWavFileHeader(dataCut.length,dataCut.length + 36,16000,1,32000);
+    NSRange  range=NSMakeRange(targetData.length-midleByte,midleByte);
+    NSData * dataCut=[targetData subdataWithRange:range];
+
+
+    NSData *header = [HeadData WriteWavFileHeader:dataCut.length DtotalDataLen:dataCut.length + 36 DlongSampleRate:16000 Dchannels:1 DbyteRate:32000];
     //拼成wav文件
     [resultData appendData:header];
     [resultData appendData:dataCut];
 
     NSString * string=[[NSString alloc]initWithData:resultData encoding:NSASCIIStringEncoding];
     self.mdString=[[MD5String MD5ForUpper32Bate:string] copy];
-    [self sendStopTimeMessage];
-    
+ 
+
     //根据resultData重新生成一个文件
-    
+
     NSFileManager * manager=[NSFileManager defaultManager];
     NSString * home=NSHomeDirectory();
     NSMutableArray * arrayFull=[[self.filePath componentsSeparatedByString:@"/"] copy];
@@ -746,6 +699,7 @@ NSLog(@"$$$$%@",self.timeArrayEnd);
     home=[home stringByAppendingPathComponent:@"Documents"];
     NSString * pathResultDocument=[home stringByAppendingPathComponent:documentString];
     [manager createDirectoryAtPath:pathResultDocument withIntermediateDirectories:YES attributes:nil error:nil];
+    
     BOOL createSucees=[manager createFileAtPath:[pathResultDocument stringByAppendingPathComponent:arrayFull.lastObject]  contents:resultData attributes:nil];
     if (createSucees){
         NSLog(@"写入文件成功，路径为%@",[pathResultDocument stringByAppendingPathComponent:arrayFull.lastObject] );
@@ -753,61 +707,15 @@ NSLog(@"$$$$%@",self.timeArrayEnd);
     else{
         NSLog(@"写入文件失败");
     }
+    self.recordFilePath=[[pathResultDocument stringByAppendingPathComponent:arrayFull.lastObject] copy];
     NSLog(@"resultData.length%lu",(unsigned long)resultData.length);
-    //发送截取好的wav语音文件
+    
+    
+//    发送截取好的wav语音文件
     [self sendFile];
+    [self startRecord];
+    
 }
-//拼接wav头文件函数
-NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampleRate,int channels, long byteRate)
-{
-    Byte  header[44];
-    header[0] = 'R';  // RIFF/WAVE header
-    header[1] = 'I';
-    header[2] = 'F';
-    header[3] = 'F';
-    header[4] = (Byte) (totalDataLen & 0xff);  //file-size (equals file-size - 8)
-    header[5] = (Byte) ((totalDataLen >> 8) & 0xff);
-    header[6] = (Byte) ((totalDataLen >> 16) & 0xff);
-    header[7] = (Byte) ((totalDataLen >> 24) & 0xff);
-    header[8] = 'W';  // Mark it as type "WAVE"
-    header[9] = 'A';
-    header[10] = 'V';
-    header[11] = 'E';
-    header[12] = 'f';  // Mark the format section 'fmt ' chunk
-    header[13] = 'm';
-    header[14] = 't';
-    header[15] = ' ';
-    header[16] = 16;   // 4 bytes: size of 'fmt ' chunk, Length of format data.  Always 16
-    header[17] = 0;
-    header[18] = 0;
-    header[19] = 0;
-    header[20] = 1;  // format = 1 ,Wave type PCM
-    header[21] = 0;
-    header[22] = (Byte) channels;  // channels
-    header[23] = 0;
-    header[24] = (Byte) (longSampleRate & 0xff);
-    header[25] = (Byte) ((longSampleRate >> 8) & 0xff);
-    header[26] = (Byte) ((longSampleRate >> 16) & 0xff);
-    header[27] = (Byte) ((longSampleRate >> 24) & 0xff);
-    header[28] = (Byte) (byteRate & 0xff);
-    header[29] = (Byte) ((byteRate >> 8) & 0xff);
-    header[30] = (Byte) ((byteRate >> 16) & 0xff);
-    header[31] = (Byte) ((byteRate >> 24) & 0xff);
-    header[32] = (Byte) (1 * 16 / 8); // block align
-    header[33] = 0;
-    header[34] = 16; // bits per sample
-    header[35] = 0;
-    header[36] = 'd'; //"data" marker
-    header[37] = 'a';
-    header[38] = 't';
-    header[39] = 'a';
-    header[40] = (Byte) (totalAudioLen & 0xff);  //data-size (equals file-size - 44).
-    header[41] = (Byte) ((totalAudioLen >> 8) & 0xff);
-    header[42] = (Byte) ((totalAudioLen >> 16) & 0xff);
-    header[43] = (Byte) ((totalAudioLen >> 24) & 0xff);
-    return [[NSData alloc] initWithBytes:header length:44];;
-}
-
 #pragma ----发送文件
 -(void)sendFile{
 
@@ -822,11 +730,10 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
                                @"sensorId": [NSString stringWithFormat:@"%d",self.id],
                                @"operationId":[NSNumber numberWithInt:++self.actNumber],
                                @"filename":self.filePath
-            
           };
          NSData * data=[NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
           [formData appendPartWithFormData:data name:@"info"];
-          [formData appendPartWithFileURL:[NSURL URLWithString:self.recordFilePath] name:self.filePath error:nil];
+          [formData appendPartWithFileURL:[NSURL fileURLWithPath:self.recordFilePath] name:self.filePath error:nil];
 
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
@@ -849,7 +756,6 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
     NSString* json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     [self sendMsgAction:json];
-
 }
 //目前用不到
 -(void)sendStatusFailed{
@@ -874,7 +780,7 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
 #pragma mark ------------发送设备信息
 -(void)sendMyDeviceInformation{
 
-     NSDictionary *recordSetting = @{AVSampleRateKey: @(44100),
+     NSDictionary *recordSetting = @{AVSampleRateKey: @(16000.),
                                     AVFormatIDKey: @(kAudioFormatLinearPCM),
                                     AVLinearPCMBitDepthKey: @(16),
                                     AVNumberOfChannelsKey: @(1),
@@ -886,6 +792,24 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
                             @"id": @1,
                             @"desc":@"micphone1",
                             @"spec":recordSetting};
+
+/**
+ resolution：图片像素，string，按照”w*h”格式或特殊值，默认取摄像头最大像素，例如：
+
+
+ 1280*720；
+ 480，720，1080，4K （分别代表640*480，1280720，19201080，4096*2160）；
+
+
+ exposure：曝光，int，取-3~3，默认取auto；
+ brightness：亮度，int，默认取auto
+ saturation：饱和度，int，默认取auto
+ contrast：对比度，int，默认取auto
+ hue：色度，int，默认取auto
+ gain：图像增益，int，默认取auto
+ focus：焦距，int，默认取auto
+ pixelFormat：图像编码，string，按照Video Codecs by FOURCC提供，只读；
+ */
 
     NSDictionary * sensor2=@{@"name":@"video",
                            @"type":@"camera",
@@ -899,7 +823,7 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
                             
     
     NSString * name=[[UIDevice currentDevice] name];
-    self.myDeviceUUID=[[UIDevice currentDevice] identifierForVendor];
+    self.myDeviceUUID = [[UIDevice currentDevice] identifierForVendor];
     NSDictionary * data=@{@"name":name,
                           @"agentId":self.myDeviceUUID.UUIDString,
                           @"sensors":@[sensor1,sensor2]};
@@ -912,9 +836,8 @@ NSData* WriteWavFileHeader(long totalAudioLen, long totalDataLen, long longSampl
    
    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
    NSString* json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    [self sendMsgAction:json];
+   [self sendMsgAction:json];
    
-    
 }
 -(void)sendCloseAgain{
     NSDictionary * data=@{@"status": @303,
@@ -948,7 +871,6 @@ NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
     NSString* json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     [self sendMsgAction:json];
-
 }
 -(void)senfJSONFaild{
     NSDictionary * dic=@{@"status":@402,
@@ -973,15 +895,12 @@ NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
     NSString* json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
    [self sendMsgAction:json];
-
 }
 #pragma mark ---------发送数据
 - (void)sendMsgAction:(NSString *)json{
     NSLog(@"我已经发送的数据%@",json);
     const char *msg = json.UTF8String;
     send((int)self.clinenId,msg, strlen(msg), 0);
-    
-  
 }
 #pragma mark ---------请求麦克风
 -(void)requestForMic{
@@ -1034,6 +953,7 @@ NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:
 
     });
 }
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.IPTextView resignFirstResponder];
     [self.portTextView resignFirstResponder];

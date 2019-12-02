@@ -23,7 +23,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBG-o8-5Mt">
-                                <rect key="frame" x="90" y="478" width="234" height="34"/>
+                                <rect key="frame" x="90" y="372" width="234" height="34"/>
                                 <color key="backgroundColor" red="0.33646723630000003" green="0.83821380140000001" blue="0.7411755323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="LLE-1k-8ym"/>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入端口号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RBt-JP-9De">
-                                <rect key="frame" x="90" y="414" width="234" height="34"/>
+                                <rect key="frame" x="90" y="308" width="234" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="LAl-jk-sFB"/>
@@ -49,7 +49,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入IP地址" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fWW-QA-Tnt">
-                                <rect key="frame" x="90" y="350" width="234" height="34"/>
+                                <rect key="frame" x="90" y="244" width="234" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="59Y-Pd-NQl"/>
@@ -57,6 +57,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wT1-6q-Kjt">
+                                <rect key="frame" x="63" y="620" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="进入拍摄界面"/>
+                                <connections>
+                                    <action selector="takePic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="avU-ag-7EN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blg-sU-AhK">
+                                <rect key="frame" x="63" y="669" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="拍摄后存入相册"/>
+                                <connections>
+                                    <action selector="btnpic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vib-uK-feV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84943031627559851" green="0.96862745100000003" blue="0.9513182277190223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -65,11 +81,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RBt-JP-9De" secondAttribute="trailing" constant="90" id="Clf-EO-BZ8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWW-QA-Tnt" secondAttribute="trailing" constant="90" id="Eag-Sy-Xz9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UBG-o8-5Mt" secondAttribute="trailing" constant="90" id="Nzq-mz-n3w"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UBG-o8-5Mt" secondAttribute="bottom" constant="350" id="RnE-vT-EXY"/>
                             <constraint firstItem="UBG-o8-5Mt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="aLN-Ri-hXW"/>
                             <constraint firstItem="ata-Jy-cfJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="cse-8I-QdK"/>
                             <constraint firstItem="fWW-QA-Tnt" firstAttribute="bottom" secondItem="RBt-JP-9De" secondAttribute="top" constant="-30" id="hV5-L0-OxW"/>
                             <constraint firstItem="UBG-o8-5Mt" firstAttribute="top" secondItem="RBt-JP-9De" secondAttribute="bottom" constant="30" id="pwB-pp-Tpc"/>
+                            <constraint firstItem="fWW-QA-Tnt" firstAttribute="top" secondItem="ata-Jy-cfJ" secondAttribute="bottom" constant="30" id="rVj-x1-DZ7"/>
                             <constraint firstItem="ata-Jy-cfJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="uKJ-tH-3IU"/>
                             <constraint firstItem="RBt-JP-9De" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="x3p-Uh-cfH"/>
                         </constraints>

@@ -60,14 +60,4 @@
     }
 }
 
-+ (void)removeFLLRfromWavHeader:(NSString *)wavPath
-{
-    [self removeChunk:@"FLLR" fromWavHeader:wavPath];
-}
-
-+ (void)removeJUNKfromWavHeader:(NSString *)wavPath
-{
-    [self removeChunk:@"JUNK" fromWavHeader:wavPath];
-}
-
 @end
