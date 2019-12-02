@@ -147,9 +147,9 @@
     [self viewWillShow];
 }
 //降噪
-//-(void)echo{
-//     [[XBEchoCancellation shared] closeEchoCancellation];
-//}
+-(void)echo{
+     [[XBEchoCancellation shared] closeEchoCancellation];
+}
 //-(void)setupForPicture{
 //
 //    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
