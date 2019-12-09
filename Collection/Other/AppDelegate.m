@@ -18,7 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
 }
-
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"sendMemoryWarning" object:nil];
+}
 
 #pragma mark - UISceneSession lifecycle
 

@@ -13,12 +13,12 @@
 #include <errno.h>
 #import <AVFoundation/AVFoundation.h>
 #import "COTime.h"
-#import "WavHeader.h"
 #import "VidioViewController.h"
 #import "MD5String.h"
 #import "AFNetworking.h"
 #import "XBEchoCancellation.h"
 #import "HeadData.h"
+#import "TakePictureController.h"
 
 #define SECRET @"123456789"
 
@@ -154,56 +154,17 @@
 //     [[XBEchoCancellation shared] closeEchoCancellation];
 //}
 - (IBAction)takePic:(id)sender {
-    [self setupForPicture];
+//    [self setupForPicture];
+    TakePictureController * pic=[[TakePictureController alloc]init];
+    pic.modalPresentationStyle=UIModalPresentationFullScreen;
+    [self presentViewController:pic animated:NO completion:nil];
+    
     
 }
 - (IBAction)btnpic:(id)sender {
 }
 
--(void)setupForPicture{
 
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-    //第二步:实例化UIImagePickerController对象
-     UIImagePickerController * imagePickerController = [[UIImagePickerController alloc] init];
-
-    //第三步:告诉picker对象是获取相机资源
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    //第四步:设置代理
-    imagePickerController.delegate = self;
-    //第五步:设置picker可以编辑
-    imagePickerController.allowsEditing = YES;
-    //第六步:设置进去的模态方式
-    imagePickerController.modalPresentationStyle=UIModalPresentationOverCurrentContext;
-    //第七步:跳转
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-
-    }
-}
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-//获取选中资源的类型
-NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-//只能拍照(还有摄像或者二者都可以有的)
-NSString *requiredMediaType = (NSString *)kUTTypeImage;
-if([mediaType isEqualToString:requiredMediaType])
-{
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
-
-}
-[picker dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error
-  contextInfo:(void *)contextInfo{
-
-    NSLog(@"saved..");
-}
 
 //- (IBAction)endsocketByHand:(UIButton *)sender {
 //    self.clinenId=-1;
@@ -329,11 +290,9 @@ if([mediaType isEqualToString:requiredMediaType])
                 }
                  return ;
                 }
-          
           //接受到了服务端的消息，添加时间和解析数据
            [self.timeArrayBegin addObject:[COTime getTimeStamp]];
            [self.timeArrayEnd   addObject:[COTime getTimeStamp]];
-          
             NSData *data = [NSData dataWithBytes:buffer length:recvLen];
             NSError * error=nil;
             id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
@@ -398,7 +357,9 @@ if([mediaType isEqualToString:requiredMediaType])
                                         dispatch_async(dispatch_get_main_queue(), ^{
                                             self.micDic=nil;
                                             self.micDic=[NSMutableDictionary dictionary];
-                                        
+                                            NSDictionary * spec=[sensor objectForKey:@"spec"];
+                                            [self.micDic setDictionary:spec];
+                                            [self.micDic setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
                                             self.setupFlag=YES;
                                             [self startRecord];
                                             [self changeVC];
@@ -533,7 +494,7 @@ if([mediaType isEqualToString:requiredMediaType])
     
     
     NSDictionary * extra=@{@"desc":self.desc,
-                           @"sessionId":@"S0001",
+                           @"sessionId":self.ssensor,
                            @"content":@[contentItem]};
     
     NSDictionary * data=@{@"status": @200,
@@ -623,13 +584,8 @@ if([mediaType isEqualToString:requiredMediaType])
            NSLog(@"储存文件的路径%@",tempPath);
            NSURL *tmpRecordURL = [NSURL fileURLWithPath:tempPath];
            [self.fileNameArray addObject:tempPath];
-           NSDictionary *recordSetting = @{AVSampleRateKey: @(16000.),
-                                           AVFormatIDKey: @(kAudioFormatLinearPCM),
-                                           AVLinearPCMBitDepthKey: @(16),
-                                           AVNumberOfChannelsKey: @(1),
-                                           AVLinearPCMIsBigEndianKey: @(NO),
-                                           AVLinearPCMIsFloatKey: @(NO),
-                                           };
+           NSDictionary *recordSetting = [NSDictionary dictionaryWithDictionary:self.micDic];
+    
            self.recorder= nil;
            self.recorder = [[AVAudioRecorder alloc]initWithURL:tmpRecordURL settings:recordSetting error:nil];
            self.recorder.delegate = self;

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		168ED9B923950D270045003B /* HeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 168ED9B823950D270045003B /* HeadData.m */; };
 		381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */; };
+		381DA8C42397509F003F4CA6 /* TakePictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA8C32397509F003F4CA6 /* TakePictureController.m */; };
+		383487DC239E1D970099B743 /* TakeVidoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383487DB239E1D970099B743 /* TakeVidoViewController.m */; };
 		38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC4237D5252003EE481 /* AppDelegate.m */; };
 		38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC7237D5252003EE481 /* SceneDelegate.m */; };
 		38FE2ACB237D5252003EE481 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ACA237D5252003EE481 /* ViewController.mm */; };
@@ -58,6 +60,10 @@
 		33A2D58795395C87D0F4EE12 /* libPods-Collection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Collection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		381DA69A2394B768003F4CA6 /* XBEchoCancellation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBEchoCancellation.h; sourceTree = "<group>"; };
 		381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBEchoCancellation.m; sourceTree = "<group>"; };
+		381DA8C22397509F003F4CA6 /* TakePictureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePictureController.h; sourceTree = "<group>"; };
+		381DA8C32397509F003F4CA6 /* TakePictureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePictureController.m; sourceTree = "<group>"; };
+		383487DA239E1D970099B743 /* TakeVidoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakeVidoViewController.h; sourceTree = "<group>"; };
+		383487DB239E1D970099B743 /* TakeVidoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakeVidoViewController.m; sourceTree = "<group>"; };
 		38FE2AC0237D5252003EE481 /* Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AC3237D5252003EE481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38FE2AC4237D5252003EE481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -269,6 +275,10 @@
 				38FE2B50237E74A9003EE481 /* VidioViewController.h */,
 				38FE2B51237E74A9003EE481 /* VidioViewController.m */,
 				38FE2B52237E74A9003EE481 /* VidioViewController.xib */,
+				381DA8C22397509F003F4CA6 /* TakePictureController.h */,
+				381DA8C32397509F003F4CA6 /* TakePictureController.m */,
+				383487DA239E1D970099B743 /* TakeVidoViewController.h */,
+				383487DB239E1D970099B743 /* TakeVidoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -444,6 +454,7 @@
 				38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */,
 				38FE2B79237E8AE7003EE481 /* MD5String.m in Sources */,
 				38FE2B6A237E7784003EE481 /* PQTopArcAnimationView.m in Sources */,
+				383487DC239E1D970099B743 /* TakeVidoViewController.m in Sources */,
 				381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */,
 				38FE2B6C237E7784003EE481 /* PQVoiceTopArcView.m in Sources */,
 				38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */,
@@ -454,6 +465,7 @@
 				38FE2AFC237E442D003EE481 /* COTime.m in Sources */,
 				38FE2B70237E7784003EE481 /* PQVoiceBottomView.m in Sources */,
 				168ED9B923950D270045003B /* HeadData.m in Sources */,
+				381DA8C42397509F003F4CA6 /* TakePictureController.m in Sources */,
 				38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */,
 				38FE2B6B237E7784003EE481 /* PQVoiceCircleView.m in Sources */,
 				38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */,
