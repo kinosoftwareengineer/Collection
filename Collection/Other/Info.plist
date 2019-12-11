@@ -69,10 +69,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>Privacy - Photo Library Usage Description </key>
-	<string>正在请求访问你的相册</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>正在请求将照片写入相册</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>写入相册</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

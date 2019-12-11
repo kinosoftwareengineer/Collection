@@ -10,7 +10,8 @@
 		168ED9B923950D270045003B /* HeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 168ED9B823950D270045003B /* HeadData.m */; };
 		381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */; };
 		381DA8C42397509F003F4CA6 /* TakePictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381DA8C32397509F003F4CA6 /* TakePictureController.m */; };
-		383487DC239E1D970099B743 /* TakeVidoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383487DB239E1D970099B743 /* TakeVidoViewController.m */; };
+		383487EA23A0D2EA0099B743 /* TakeVidoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383487E923A0D2EA0099B743 /* TakeVidoViewController.m */; };
+		383487ED23A0D33D0099B743 /* LZBRecordVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 383487EB23A0D33D0099B743 /* LZBRecordVideoTool.m */; };
 		38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC4237D5252003EE481 /* AppDelegate.m */; };
 		38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2AC7237D5252003EE481 /* SceneDelegate.m */; };
 		38FE2ACB237D5252003EE481 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38FE2ACA237D5252003EE481 /* ViewController.mm */; };
@@ -62,8 +63,10 @@
 		381DA69B2394B768003F4CA6 /* XBEchoCancellation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBEchoCancellation.m; sourceTree = "<group>"; };
 		381DA8C22397509F003F4CA6 /* TakePictureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePictureController.h; sourceTree = "<group>"; };
 		381DA8C32397509F003F4CA6 /* TakePictureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePictureController.m; sourceTree = "<group>"; };
-		383487DA239E1D970099B743 /* TakeVidoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakeVidoViewController.h; sourceTree = "<group>"; };
-		383487DB239E1D970099B743 /* TakeVidoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakeVidoViewController.m; sourceTree = "<group>"; };
+		383487E823A0D2E90099B743 /* TakeVidoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeVidoViewController.h; sourceTree = "<group>"; };
+		383487E923A0D2EA0099B743 /* TakeVidoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeVidoViewController.m; sourceTree = "<group>"; };
+		383487EB23A0D33D0099B743 /* LZBRecordVideoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZBRecordVideoTool.m; path = Collection/TOOL/LZBRecordVideoTool.m; sourceTree = SOURCE_ROOT; };
+		383487EC23A0D33D0099B743 /* LZBRecordVideoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZBRecordVideoTool.h; path = Collection/TOOL/LZBRecordVideoTool.h; sourceTree = SOURCE_ROOT; };
 		38FE2AC0237D5252003EE481 /* Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FE2AC3237D5252003EE481 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38FE2AC4237D5252003EE481 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				381DA6992394B768003F4CA6 /* XBEchoCancellation */,
 				38FE2AFA237E442D003EE481 /* COTime.h */,
 				38FE2AFB237E442D003EE481 /* COTime.m */,
+				383487EC23A0D33D0099B743 /* LZBRecordVideoTool.h */,
+				383487EB23A0D33D0099B743 /* LZBRecordVideoTool.m */,
 				38FE2B77237E8AE7003EE481 /* MD5String.h */,
 				38FE2B78237E8AE7003EE481 /* MD5String.m */,
 				168ED9B723950D270045003B /* HeadData.h */,
@@ -277,8 +282,8 @@
 				38FE2B52237E74A9003EE481 /* VidioViewController.xib */,
 				381DA8C22397509F003F4CA6 /* TakePictureController.h */,
 				381DA8C32397509F003F4CA6 /* TakePictureController.m */,
-				383487DA239E1D970099B743 /* TakeVidoViewController.h */,
-				383487DB239E1D970099B743 /* TakeVidoViewController.m */,
+				383487E823A0D2E90099B743 /* TakeVidoViewController.h */,
+				383487E923A0D2EA0099B743 /* TakeVidoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -454,7 +459,7 @@
 				38FE2AC5237D5252003EE481 /* AppDelegate.m in Sources */,
 				38FE2B79237E8AE7003EE481 /* MD5String.m in Sources */,
 				38FE2B6A237E7784003EE481 /* PQTopArcAnimationView.m in Sources */,
-				383487DC239E1D970099B743 /* TakeVidoViewController.m in Sources */,
+				383487EA23A0D2EA0099B743 /* TakeVidoViewController.m in Sources */,
 				381DA69C2394B769003F4CA6 /* XBEchoCancellation.m in Sources */,
 				38FE2B6C237E7784003EE481 /* PQVoiceTopArcView.m in Sources */,
 				38FE2B71237E7784003EE481 /* PQVoiceInputView.m in Sources */,
@@ -469,6 +474,7 @@
 				38FE2B53237E74A9003EE481 /* VidioViewController.m in Sources */,
 				38FE2B6B237E7784003EE481 /* PQVoiceCircleView.m in Sources */,
 				38FE2AC8237D5252003EE481 /* SceneDelegate.m in Sources */,
+				383487ED23A0D33D0099B743 /* LZBRecordVideoTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

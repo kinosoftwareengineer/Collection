@@ -19,6 +19,7 @@
 #import "XBEchoCancellation.h"
 #import "HeadData.h"
 #import "TakePictureController.h"
+#import "TakeVidoViewController.h"
 
 #define SECRET @"123456789"
 
@@ -143,7 +144,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //请求访问麦克风/设置session/请求网络/降噪
-    [self requestForMic];
     [self configSession];
     [self connect];
 //    [self performSelector:@selector(echo) withObject:nil afterDelay:.01f];
@@ -162,6 +162,9 @@
     
 }
 - (IBAction)btnpic:(id)sender {
+    TakeVidoViewController * video=[[TakeVidoViewController alloc]init];
+    video.modalPresentationStyle=UIModalPresentationFullScreen;
+    [self presentViewController:video animated:YES completion:nil];
 }
 
 
@@ -749,23 +752,6 @@
                             @"desc":@"micphone1",
                             @"spec":recordSetting};
 
-/**
- resolution：图片像素，string，按照”w*h”格式或特殊值，默认取摄像头最大像素，例如：
-
-
- 1280*720；
- 480，720，1080，4K （分别代表640*480，1280720，19201080，4096*2160）；
-
-
- exposure：曝光，int，取-3~3，默认取auto；
- brightness：亮度，int，默认取auto
- saturation：饱和度，int，默认取auto
- contrast：对比度，int，默认取auto
- hue：色度，int，默认取auto
- gain：图像增益，int，默认取auto
- focus：焦距，int，默认取auto
- pixelFormat：图像编码，string，按照Video Codecs by FOURCC提供，只读；
- */
 
     NSDictionary * sensor2=@{@"name":@"video",
                            @"type":@"camera",
@@ -858,33 +844,7 @@ NSData * jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:
     const char *msg = json.UTF8String;
     send((int)self.clinenId,msg, strlen(msg), 0);
 }
-#pragma mark ---------请求麦克风
--(void)requestForMic{
-    [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
-        if (granted) {
-            
-        }
-        else{
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"麦克风权限未开启" message:@"麦克风权限未开启，请进入系统【设置】>【隐私】>【麦克风】中打开开关,开启麦克风功能" preferredStyle:UIAlertControllerStyleAlert];
-               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 
-               }];
-               UIAlertAction *setAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                   //跳入当前App设置界面
-                    NSURL* url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                   if (@available(iOS 10.0, *)) {
-                       [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-                   } else {
-                       [[UIApplication sharedApplication]openURL:url];
-                   }
-               }];
-               [alertVC addAction:cancelAction];
-               [alertVC addAction:setAction];
-
-               [self presentViewController:alertVC animated:YES completion:nil];
-           }
-    }];
-}
 #pragma mark ---------socket关闭
 -(void)endSocket{
     self.IPTextView.enabled=YES;

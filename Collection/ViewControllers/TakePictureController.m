@@ -167,6 +167,8 @@
          [self.session stopRunning];
         //默认是jpg
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+//        NSDate * ima=[imageData data]
+      
          
         //可以换成png
         UIImage * image=[UIImage imageWithData:imageData];
@@ -181,7 +183,7 @@
     if(error != NULL){
         
        NSLog(@"保存图片失败");
-        
+  
     }else{
         NSLog(@"保存图片成功");
         
@@ -189,7 +191,12 @@
 }
 - (AVCaptureStillImageOutput *)imageOutput {
     if(!_imageOutput) {
-        _imageOutput = [[AVCaptureStillImageOutput alloc] init];
+//        NSDictionary * dic=[z]
+//        AVCapturePhotoSettings * setting=[[AVCapturePhotoSettings photoSettingsWithFormat:<#(nullable NSDictionary<NSString *,id> *)#>];
+//        [setting ]
+             _imageOutput = [[AVCaptureStillImageOutput alloc] init];
+//             [_imageOutput setOutputSettings:dic];
+   
     }
     return _imageOutput;
 }
