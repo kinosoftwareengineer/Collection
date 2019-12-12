@@ -49,7 +49,6 @@
 #pragma mark - 定时器
 - (void)startTimer
 {
-   
     self.timer = [NSTimer  scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }

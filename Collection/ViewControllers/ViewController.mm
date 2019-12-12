@@ -19,6 +19,7 @@
 #import "XBEchoCancellation.h"
 #import "HeadData.h"
 #import "TakePictureController.h"
+#import "TakeVideoViewController.h"
 #import "TakeVidoViewController.h"
 
 #define SECRET @"123456789"

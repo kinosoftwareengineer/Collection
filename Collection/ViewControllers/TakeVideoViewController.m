@@ -34,6 +34,8 @@
     
     // 创建一个视频输出对象
     AVCaptureVideoDataOutput *captureOutput = [[AVCaptureVideoDataOutput alloc] init];
+    
+    
     [captureOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
     
     NSString     *key           = (NSString *)kCVPixelBufferPixelFormatTypeKey;
@@ -71,13 +73,14 @@
 
 #pragma mark ------------------AVCaptureVideoDataOutputSampleBufferDelegate--------------------------------
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    connection.videoOrientation=AVCaptureVideoOrientationPortrait;
     if( !CMSampleBufferDataIsReady(sampleBuffer)) {
         NSLog( @"sample buffer is not ready. Skipping sample" );
         return;
     }
     
     if([XDXHardwareEncoder getInstance] != NULL) {
-        [[XDXHardwareEncoder getInstance] startWithWidth:360 andHeight:640 andFPS:30];
+        [[XDXHardwareEncoder getInstance] startWithWidth:2160 andHeight:3840 andFPS:30];
         [[XDXHardwareEncoder getInstance] encode:sampleBuffer];
     }
 }
